@@ -8,13 +8,13 @@ def arreter_horloge():
 def regler_heure(tuple):
     return datetime.datetime(1,1,1, tuple[0], tuple[1], tuple[2])
     
-def afficher_heure(tuple, format):
+def afficher_heure(tuple, format, alarme):
     if tuple == (0,0,0):
         time_start = datetime.datetime.now()
     else:
-        time_start = datetime.datetime(1,1,1, tuple[0], tuple[1], tuple[2])
+        time_start = regler_heure(tuple)
         
-    time_alarm = regler_heure((14,6,2))
+    time_alarm = regler_heure(alarme)
     
     if format:
         while True:
@@ -39,9 +39,10 @@ def afficher_heure(tuple, format):
             time_start += datetime.timedelta(seconds=1)
             time.sleep(1)
 
-am_pm = True
-afficher_heure((12,59,55), am_pm)
+am_pm = False
+afficher_heure((14,55,0), am_pm, (14,55,10))
 
 #Si le tuple est nul alors il nous affichera l'heure locale
 # Pour régler am/pm ou 24h nous utilisons un booléen
 # True pour am/pm; False pour le format 24h
+# Le troisième parametre configure l'heure de l'alarme
