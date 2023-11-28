@@ -46,3 +46,5 @@ afficher_heure((14,55,0), am_pm, (14,55,10))
 # Pour régler am/pm ou 24h nous utilisons un booléen
 # True pour am/pm; False pour le format 24h
 # Le troisième parametre configure l'heure de l'alarme
+
+# L'alarme ne sonne pas lorsqu'on utilise l'argument tuple=(0,0,0)
